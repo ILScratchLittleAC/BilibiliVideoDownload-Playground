@@ -51,7 +51,10 @@ jobs:
           npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - name: Install Python 2 for MacOS
+        uses: actions/setup-python@v2
+        with:
+          python-version: "2.7"
       - name: Build mac app
         if: matrix.os == 'macos-latest'
         run: |
